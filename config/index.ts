@@ -1,13 +1,14 @@
-import { defineConfig, type UserConfigExport } from '@tarojs/cli'
+import type { UserConfigExport } from '@tarojs/cli'
 
+import tailwindcss from '@tailwindcss/postcss'
+import { defineConfig } from '@tarojs/cli'
+import { UnifiedViteWeappTailwindcssPlugin } from 'weapp-tailwindcss/vite'
 import devConfig from './dev'
 import prodConfig from './prod'
-import { UnifiedViteWeappTailwindcssPlugin } from 'weapp-tailwindcss/vite'
-import tailwindcss from '@tailwindcss/postcss'
 // import tailwindcss from '@tailwindcss/vite'
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
-export default defineConfig<'vite'>(async (merge, { command, mode }) => {
+export default defineConfig<'vite'>(async (merge, { command: _command, mode: _mode }) => {
   // const { default: tailwindcss } = await import('@tailwindcss/vite')
 
   const baseConfig: UserConfigExport<'vite'> = {
@@ -18,7 +19,7 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
       640: 2.34 / 2,
       750: 1,
       375: 2,
-      828: 1.81 / 2
+      828: 1.81 / 2,
     },
     sourceRoot: 'src',
     outputRoot: 'dist',
@@ -29,7 +30,7 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
       patterns: [
       ],
       options: {
-      }
+      },
     },
     framework: 'react',
     compiler: {
@@ -42,7 +43,6 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
           config(config) {
             // 加载 tailwindcss
             if (typeof config.css?.postcss === 'object') {
-              // @ts-ignore
               config.css?.postcss.plugins?.unshift(tailwindcss())
             }
           },
@@ -50,8 +50,8 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
         UnifiedViteWeappTailwindcssPlugin({
           rem2rpx: true,
           // appType: 'taro'
-        })
-      ]
+        }),
+      ],
     },
     mini: {
       postcss: {
@@ -59,15 +59,15 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
           enable: true,
           config: {
 
-          }
+          },
         },
         cssModules: {
           enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
           config: {
             namingPattern: 'module', // 转换模式，取值为 global/module
-            generateScopedName: '[name]__[local]___[hash:base64:5]'
-          }
-        }
+            generateScopedName: '[name]__[local]___[hash:base64:5]',
+          },
+        },
       },
     },
     h5: {
@@ -77,20 +77,20 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
       miniCssExtractPluginOption: {
         ignoreOrder: true,
         filename: 'css/[name].[hash].css',
-        chunkFilename: 'css/[name].[chunkhash].css'
+        chunkFilename: 'css/[name].[chunkhash].css',
       },
       postcss: {
         autoprefixer: {
           enable: true,
-          config: {}
+          config: {},
         },
         cssModules: {
           enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
           config: {
             namingPattern: 'module', // 转换模式，取值为 global/module
-            generateScopedName: '[name]__[local]___[hash:base64:5]'
-          }
-        }
+            generateScopedName: '[name]__[local]___[hash:base64:5]',
+          },
+        },
       },
     },
     rn: {
@@ -98,9 +98,9 @@ export default defineConfig<'vite'>(async (merge, { command, mode }) => {
       postcss: {
         cssModules: {
           enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
-        }
-      }
-    }
+        },
+      },
+    },
   }
 
   process.env.BROWSERSLIST_ENV = process.env.NODE_ENV

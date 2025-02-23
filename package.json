@@ -9,6 +9,7 @@
     "css": "None",
     "framework": "React"
   },
+  "author": "",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -43,7 +44,6 @@
       "ios >= 8"
     ]
   },
-  "author": "",
   "dependencies": {
     "@babel/runtime": "^7.24.4",
     "@tarojs/components": "4.0.9",
@@ -65,9 +65,11 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^4.3.0",
     "@babel/core": "^7.24.4",
     "@babel/plugin-proposal-class-properties": "7.14.5",
     "@babel/preset-react": "^7.24.1",
+    "@eslint-react/eslint-plugin": "^1.26.2",
     "@tailwindcss/postcss": "^4.0.8",
     "@tailwindcss/vite": "^4.0.8",
     "@tarojs/cli": "4.0.9",
@@ -77,8 +79,10 @@
     "babel-preset-taro": "4.0.9",
     "eslint": "^8.57.0",
     "eslint-config-taro": "4.0.9",
+    "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
     "postcss": "^8.5.3",
     "react-refresh": "^0.14.0",
     "stylelint": "^16.4.0",
@@ -87,11 +91,7 @@
     "typescript": "^5.4.5",
     "vite": "^4.2.0",
     "weapp-ide-cli": "^2.0.10",
-    "weapp-tailwindcss": "^4.0.5",
-    "@antfu/eslint-config": "^4.3.0",
-    "eslint-plugin-format": "^1.0.1",
-    "@eslint-react/eslint-plugin": "^1.26.2",
-    "eslint-plugin-react-refresh": "^0.4.19"
+    "weapp-tailwindcss": "^4.0.5"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
