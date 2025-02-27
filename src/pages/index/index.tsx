@@ -9,7 +9,7 @@ export default function Index() {
   })
 
   return (
-    <View className="index bg-[#123456]">
+    <View className="index bg-[#ABCDEF]">
       <Text className="text-(--xx)">Hello world!</Text>
     </View>
   )
