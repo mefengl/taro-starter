@@ -4,7 +4,7 @@ export default antfu({
   formatters: true,
   react: true,
   rules: {
-    // Taro
+    // taro
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
 
@@ -13,5 +13,10 @@ export default antfu({
   },
   extends: [
     'taro/react',
+  ],
+  ignores: [
+    // taro
+    'project.config.json',
+    'project.private.config.json',
   ],
 })
